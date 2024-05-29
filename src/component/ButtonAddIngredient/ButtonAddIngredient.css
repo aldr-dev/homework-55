@@ -1,0 +1,18 @@
+.button-ingredient {
+  display: flex;
+  align-items: center;
+  cursor: pointer;
+  gap: 15px;
+  margin-bottom: 15px;
+}
+
+.img-ingredient {
+  display: block;
+  height: auto;
+  width: 80px;
+  border: 1px solid #000;
+}
+
+.name-ingredient {
+  font-size: 16px;
+}

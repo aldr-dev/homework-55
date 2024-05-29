@@ -13,3 +13,20 @@ body {
   margin: 0 auto;
   padding: 0 15px;
 }
+
+.constructor-container {
+  display: flex;
+  justify-content: space-between;
+  margin-top: 50px;
+}
+
+.ingredient-buttons, .build-burger {
+  border: 2px solid #000;
+  padding: 15px;
+  width: 49%;
+}
+
+.constructor-name {
+  font-weight: 600;
+  font-size: 25px;
+}

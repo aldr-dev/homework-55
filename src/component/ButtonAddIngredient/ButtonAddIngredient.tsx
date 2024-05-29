@@ -1,4 +1,5 @@
 import React from 'react';
+import './ButtonAddIngredient.css';
 
 interface ButtonProps {
   name: string;
@@ -8,9 +9,9 @@ interface ButtonProps {
 
 const ButtonAddIngredient: React.FC<ButtonProps> = ({name, image, onClickIngredient}) => {
   return (
-    <div onClick={onClickIngredient} className="button-ingredient">
+    <div onClick={() => onClickIngredient()} className="button-ingredient">
       <img className="img-ingredient" src={image} alt={name}/>
-      <span className="name-ingredient">{name}</span>
+      <strong className="name-ingredient">{name}</strong>
     </div>
   );
 };
