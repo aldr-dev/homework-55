@@ -9,7 +9,7 @@ body {
 }
 
 #root {
-  max-width: 1200px;
+  max-width: 1000px;
   margin: 0 auto;
   padding: 0 15px;
 }
@@ -26,7 +26,17 @@ body {
   width: 49%;
 }
 
+.ingredient-buttons {
+  padding: 15px 25px 15px 15px;
+}
+
 .constructor-name {
   font-weight: 600;
   font-size: 25px;
+}
+
+.build-table-ingredient {
+  display: flex;
+  align-items: center;
+  margin-bottom: 15px;
 }

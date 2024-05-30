@@ -1,0 +1,9 @@
+.button-delete-ingredient {
+  width: 30px;
+  height: auto;
+  cursor: pointer;
+}
+
+.button-trash {
+  margin-left: auto;
+}
