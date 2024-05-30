@@ -1,4 +1,4 @@
-import {useState} from 'react';
+import {ReactElement, useState} from 'react';
 import './App.css';
 import meatImage from './assets/ingredients/meat.png';
 import cheeseImage from './assets/ingredients/cheese.png';
@@ -23,7 +23,7 @@ const INGREDIENTS: Ingredient[] = [
 ];
 
 const App = () => {
-  const [ingredients,setIngredients] = useState<FoodItem[]>([
+  const [ingredients, setIngredients] = useState<FoodItem[]>([
     {name: 'Meat', count: 0},
     {name: 'Cheese', count: 0},
     {name: 'Salad', count: 0},
@@ -50,14 +50,33 @@ const App = () => {
   };
 
   const deleteIngredient = (name: string) => {
-    amountUpdateIngredients(name, - 1);
+    amountUpdateIngredients(name, -1);
+  };
+
+  const totalIngredientPrice = () => {
+    return ingredients.reduce((acc, ingredient) => {
+      const ingredientFind = INGREDIENTS.find((element) => element.name === ingredient.name);
+      return acc + (ingredientFind ? ingredientFind.price * ingredient.count : 0);
+    }, 30);
+  };
+
+  const buildBurger = () => {
+    const arrayIngredients: ReactElement[] = [];
+     ingredients.forEach((ingredient) => {
+      for (let i = 0; i < ingredient.count; i++) {
+        arrayIngredients.push(
+          <div key={`${ingredient.name}-${i}`} className={ingredient.name}></div>
+        );
+      }
+    });
+    return arrayIngredients;
   };
 
   return (
     <div className="constructor-container">
       <fieldset className="ingredient-buttons">
         <legend className="constructor-name">Ingredients</legend>
-        {INGREDIENTS.map((ingredient,index) => {
+        {INGREDIENTS.map((ingredient, index) => {
           return (
             <div className="build-table-ingredient" key={`ingredient-div-${index}`}>
               <ButtonAddIngredient
@@ -83,6 +102,15 @@ const App = () => {
 
       <fieldset className="build-burger">
         <legend className="constructor-name">Burger</legend>
+        <div className="Burger">
+          <div className="BreadTop">
+            <div className="Seeds1"></div>
+            <div className="Seeds2"></div>
+          </div>
+          {buildBurger()}
+          <div className="BreadBottom"></div>
+        </div>
+        <strong className="total-price-count">{`Price: ${totalIngredientPrice()}`}</strong>
       </fieldset>
     </div>
   );
