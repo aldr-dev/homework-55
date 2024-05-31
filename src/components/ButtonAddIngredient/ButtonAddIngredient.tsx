@@ -9,10 +9,10 @@ interface ButtonProps {
 
 const ButtonAddIngredient: React.FC<ButtonProps> = ({name, image, onClickIngredient}) => {
   return (
-    <div onClick={onClickIngredient} className="button-ingredient">
+    <button type="button" onClick={onClickIngredient} className="button-ingredient">
       <img className="img-ingredient" src={image} alt={name}/>
       <strong className="name-ingredient">{name}</strong>
-    </div>
+    </button>
   );
 };
 

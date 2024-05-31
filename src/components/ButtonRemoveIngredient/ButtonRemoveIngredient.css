@@ -1,9 +1,11 @@
-.button-delete-ingredient {
+.ic-delete-ingredient {
   width: 30px;
   height: auto;
-  cursor: pointer;
 }
 
 .button-trash {
+  cursor: pointer;
   margin-left: auto;
+  border: none;
+  background: transparent;
 }

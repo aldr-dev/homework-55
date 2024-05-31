@@ -1,9 +1,9 @@
 import {ReactElement, useState} from 'react';
 import './App.css';
-import meatImage from './assets/ingredients/meat.png';
-import cheeseImage from './assets/ingredients/cheese.png';
-import saladImage from './assets/ingredients/salad.png';
-import baconImage from './assets/ingredients/bacon.png';
+import meatImage from './assets/meat.png';
+import cheeseImage from './assets/cheese.png';
+import saladImage from './assets/salad.png';
+import baconImage from './assets/bacon.png';
 import {FoodItem} from './types';
 import ButtonAddIngredient from './components/ButtonAddIngredient/ButtonAddIngredient';
 import AmountIngredients from './components/AmountIngredients/AmountIngredients';
@@ -64,7 +64,7 @@ const App = () => {
     const arrayIngredients: ReactElement[] = [];
      ingredients.forEach((ingredient) => {
       for (let i = 0; i < ingredient.count; i++) {
-        arrayIngredients.push(
+        arrayIngredients.unshift(
           <div key={`${ingredient.name}-${i}`} className={ingredient.name}></div>
         );
       }
