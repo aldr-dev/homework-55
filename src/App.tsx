@@ -1,4 +1,4 @@
-import {ReactElement, useState} from 'react';
+import {useState} from 'react';
 import './App.css';
 import meatImage from './assets/meat.png';
 import cheeseImage from './assets/cheese.png';
@@ -8,6 +8,7 @@ import {FoodItem} from './types';
 import ButtonAddIngredient from './components/ButtonAddIngredient/ButtonAddIngredient';
 import AmountIngredients from './components/AmountIngredients/AmountIngredients';
 import ButtonRemoveIngredient from './components/ButtonRemoveIngredient/ButtonRemoveIngredient';
+import BuildCollectionIngredients from './components/BuildCollectionIngredients/BuildCollectionIngredients';
 
 interface Ingredient {
   name: string;
@@ -60,18 +61,6 @@ const App = () => {
     }, 30);
   };
 
-  const buildBurger = () => {
-    const arrayIngredients: ReactElement[] = [];
-     ingredients.forEach((ingredient) => {
-      for (let i = 0; i < ingredient.count; i++) {
-        arrayIngredients.unshift(
-          <div key={`${ingredient.name}-${i}`} className={ingredient.name}></div>
-        );
-      }
-    });
-    return arrayIngredients;
-  };
-
   return (
     <div className="constructor-container">
       <fieldset className="ingredient-buttons">
@@ -107,7 +96,7 @@ const App = () => {
             <div className="Seeds1"></div>
             <div className="Seeds2"></div>
           </div>
-          {buildBurger()}
+          <BuildCollectionIngredients arrayIngredients={ingredients}/>
           <div className="BreadBottom"></div>
         </div>
         <strong className="total-price-count">{`Price: ${totalIngredientPrice()}`}</strong>
