@@ -21,8 +21,8 @@ This is a web application that allows users to build a burger from available ing
 
 1. Clone the repository:  
    ```bash
-   git clone https://github.com/aldr-dev/Poker.git
-   cd Poker
+   git clone https://github.com/aldr-dev/BurgerCrafter.git
+   cd BurgerCrafter
    ```  
 2. Install dependencies:  
    ```bash
